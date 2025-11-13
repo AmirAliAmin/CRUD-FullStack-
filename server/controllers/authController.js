@@ -25,7 +25,7 @@ export const register = async(req,res)=>{
                 _id: newUser._id,
                 username: newUser.username,
                 email: newUser.email,
-                role: newUser.role // This will be "user"
+                role: newUser.role 
             }
         })
     } catch (error) {
