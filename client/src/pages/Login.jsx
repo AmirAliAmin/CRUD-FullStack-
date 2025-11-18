@@ -74,7 +74,7 @@ export default function Login() {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <div className="bg-green-400 text-white w-full max-w-md px-5 py-8 rounded-lg shadow-lg">
+            <div className="bg-blue-500 text-white w-full max-w-md px-5 py-8 rounded-lg shadow-lg">
                 <h1 className="text-2xl text-center font-bold mb-6">
                     {currState === "Login" ? "Login" : "Sign Up"}
                 </h1>
@@ -95,7 +95,7 @@ export default function Login() {
                                 id="username"
                                 value={formData.username}
                                 onChange={handleChange}
-                                className="border border-white rounded py-2 px-3 outline-0 text-black"
+                                className="border border-white rounded py-2 px-3 outline-0 text-white"
                                 required
                                 placeholder="Enter Your Name"
                             />
@@ -110,7 +110,7 @@ export default function Login() {
                             id="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="border border-white rounded py-2 px-3 outline-0 text-black"
+                            className="border border-white rounded py-2 px-3 outline-0 text-white"
                             required
                             placeholder="Enter Your Email"
                         />
@@ -124,13 +124,13 @@ export default function Login() {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="border border-white rounded py-2 px-3 outline-0 text-black pr-10"
+                            className="border border-white rounded py-2 px-3 outline-0 text-white pr-10"
                             required
                             placeholder="Enter Your Password"
                             minLength="6"
                         />
                         <div
-                            className="absolute right-3 top-11 cursor-pointer text-black"
+                            className="absolute right-3 top-12 cursor-pointer text-black"
                             onClick={() => setShowPass(!showPass)}
                         >
                             {showPass ? <FaRegEye /> : <FaRegEyeSlash />}
@@ -140,7 +140,7 @@ export default function Login() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full text-green-400 bg-white py-2 rounded-md cursor-pointer hover:bg-indigo-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold mt-4"
+                        className="w-full text-blue-500 bg-white py-2 rounded-md cursor-pointer hover:bg-indigo-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold mt-4"
                     >
                         {loading ? "Processing..." : (currState === "Login" ? "Login" : "Sign Up")}
                     </button>
@@ -150,7 +150,7 @@ export default function Login() {
                     <p className="mt-4 mb-3 text-center">
                         You don't have an account?{" "}
                         <span
-                            className="hover:text-green-700 cursor-pointer font-semibold"
+                            className="hover:text-blue-700 cursor-pointer font-semibold"
                             onClick={() => setCurrState("Signup")}
                         >
                             Sign Up
@@ -160,7 +160,7 @@ export default function Login() {
                     <p className="mt-4 mb-3 text-center">
                         You already have an account?{" "}
                         <span
-                            className="hover:text-green-700 cursor-pointer font-semibold"
+                            className="hover:text-blue-700 cursor-pointer font-semibold"
                             onClick={() => setCurrState("Login")}
                         >
                             Login
