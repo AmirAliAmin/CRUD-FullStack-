@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 //Routes
-app.get("/test", (req,res)=>{
+app.get("/", (req,res)=>{
     res.send("Hello , Hello mic testingggg")
 })
 app.use("/api/auth" , userRouter);
