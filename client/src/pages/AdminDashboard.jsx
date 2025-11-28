@@ -9,6 +9,7 @@ import { PiUsersThreeFill } from "react-icons/pi";
 import { FaTasks } from "react-icons/fa";
 import { AiFillPieChart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const AdminUserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -26,6 +27,7 @@ const AdminUserManagement = () => {
   const [adminName, setAdminName] = useState(user.username);
   const [adminEmail, setAdminEmail] = useState(user.email);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     if (user?.role === "admin") {
@@ -42,7 +44,7 @@ const AdminUserManagement = () => {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:7001/api/admin/stats", {
+      const response = await fetch(`${BASE_URL}/api/admin/stats`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -62,7 +64,7 @@ const AdminUserManagement = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:7001/api/admin/users", {
+      const response = await fetch(`${BASE_URL}/api/admin/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -80,7 +82,7 @@ const AdminUserManagement = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:7001/api/admin/tasks", {
+      const response = await fetch(`${BASE_URL}/api/admin/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -99,7 +101,7 @@ const AdminUserManagement = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:7001/api/admin/users/${userId}/role`,
+        `${BASE_URL}/api/admin/users/${userId}/role`,
         {
           method: "PUT",
           headers: {

@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const AuthContextProvider = (props) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ const AuthContextProvider = (props) => {
         try {
             console.log("Login attempt for:", email);
             
-            const response = await fetch('http://localhost:7001/api/auth/login', {
+            const response = await fetch(`${BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,7 +80,7 @@ const AuthContextProvider = (props) => {
         try {
             console.log("Registration attempt:", { username, email });
             
-            const response = await fetch("http://localhost:7001/api/auth/register", {
+            const response = await fetch(`${BASE_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

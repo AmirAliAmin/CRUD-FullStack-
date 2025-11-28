@@ -5,6 +5,7 @@ import { MdEditDocument } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../context/useAuth";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function Home() {
   const [task, setTask] = useState("");
@@ -24,7 +25,7 @@ export default function Home() {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:7001/api/todos', {
+      const response = await fetch(`${BASE_URL}/api/todos`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -43,7 +44,7 @@ export default function Home() {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:7001/api/todos', {
+      const response = await fetch(`${BASE_URL}/api/todos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +66,7 @@ export default function Home() {
   const handleCompleted = async (taskId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:7001/api/todos/${taskId}`, {
+      const response = await fetch(`${BASE_URL}/api/todos/${taskId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +87,7 @@ export default function Home() {
   const handleDelete = async (taskId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:7001/api/todos/${taskId}`, {
+      const response = await fetch(`${BASE_URL}/api/todos/${taskId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -110,7 +111,7 @@ export default function Home() {
   const handleSaveEdit = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:7001/api/todos/${currentEditedItem._id}`, {
+      const response = await fetch(`${BASE_URL}/api/todos/${currentEditedItem._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
